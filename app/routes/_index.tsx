@@ -5,7 +5,6 @@ import { useState, useEffect } from "react";
 import { SearchInput } from "../components/SearchInput";
 import { PokemonGrid } from "../components/PokemonGrid";
 import { Pagination } from "../components/Pagination";
-import { useNavigate } from "@remix-run/react";
 
 export const loader: LoaderFunction = async () => {
   const response = await fetch("https://pokeapi.co/api/v2/pokemon?limit=10000");
@@ -21,7 +20,6 @@ export default function Index() {
   const [filteredPokemons, setFilteredPokemons] = useState(pokemons);
   const [page, setPage] = useState(Number(searchParams.get("page") || 1));
   const pokemonsPerPage = 30;
-  const navigate = useNavigate();
 
   useEffect(() => {
     const handler = setTimeout(() => {
@@ -54,7 +52,7 @@ export default function Index() {
       params.page = String(page);
     }
     setSearchParams(params);
-  }, [debouncedSearchTerm, page, setSearchParams]);
+  }, [debouncedSearchTerm, page]);
 
   const totalPages = Math.ceil(filteredPokemons.length / pokemonsPerPage);
 
@@ -72,7 +70,6 @@ export default function Index() {
     setSearchParams({});
     setSearchTerm("");
   };
-  
 
   return (
     <div className="flex flex-col items-center gap-8 mb-5 min-h-[92vh]">
