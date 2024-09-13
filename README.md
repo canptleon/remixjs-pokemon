@@ -4,7 +4,7 @@ This project is a simple Pokémon catalog built using [Remix](https://remix.run/
 
 ## Live Demo
 You can check the live demo of the project here:  
-**LIVE DEMO:** https://remixjs-pokemon-gmlc95aom-arda-keyisoglus-projects.vercel.app/
+**LIVE DEMO:** https://remixjs-pokemon.vercel.app/
 
 ## Project Features
 
