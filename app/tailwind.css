@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.ball {
+  left: 5%;
+  animation: fallAndRotate 3s linear infinite;
+}
+@keyframes fallAndRotate {
+  0% {
+    top: -5vh;
+    transform: translateX(-5px) rotate(0deg);
+  }
+  100% {
+    top: 200vh;
+    transform: translateX(55px) rotate(720deg);
+  }
+}
