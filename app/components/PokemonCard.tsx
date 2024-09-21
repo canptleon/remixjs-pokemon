@@ -6,8 +6,7 @@ type PokemonCardProps = {
 };
 
 export const PokemonCard = ({ pokemon }: PokemonCardProps) => {
-
-  console.log("bu" ,pokemon)
+  
   const [imgSrc, setImgSrc] = useState(
     `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemon.url
       .split("/")
