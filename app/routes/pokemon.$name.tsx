@@ -25,14 +25,23 @@ export default function PokemonDetail() {
   const { pokemon, evolutionData } = useLoaderData();
   const [activeTab, setActiveTab] = useState("stats");
 
+  const [imgSrc, setImgSrc] = useState(
+    `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemon.id}.png`
+  );
+
+  const handleImageError = () => {
+    setImgSrc("/no-image.png");
+  };
+
   return (
     <div className="flex flex-col items-center gap-8 p-6 mb-5 min-h-[92vh] pt-[100px]">
       <BackButton />
       <h1 className="text-4xl font-bold capitalize">{pokemon.name}</h1>
       <img
-        src={pokemon.sprites.other["official-artwork"].front_default}
+        src={imgSrc}
         alt={pokemon.name}
         className="w-64 h-64"
+        onError={handleImageError}
       />
       <Tabs activeTab={activeTab} setActiveTab={setActiveTab} />
       {activeTab === "stats" && <PokemonStats stats={pokemon.stats} />}
